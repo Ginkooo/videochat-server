@@ -1,7 +1,3 @@
 # videochat-server
 
-`mkdir build`
-`cd build`
-`cmake ..`
-`cmake --build .`
-
+To run: `./run.sh`
