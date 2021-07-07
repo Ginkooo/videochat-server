@@ -1,10 +1,6 @@
 cmake_minimum_required(VERSION 3.10)
 
-project(VideochatServer)
+project(VideochatServer VERSION 0.0.1 LANGUAGES CXX)
 
-add_executable(VideochatServer src/main.cpp)
-
-add_subdirectory(external/sockpp)
-target_link_libraries(VideochatServer sockpp)
-target_link_libraries(VideochatServer pthread)
-
+add_subdirectory(external)
+add_subdirectory(src)
