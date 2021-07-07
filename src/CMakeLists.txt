@@ -1,5 +1,3 @@
-cmake_minimum_required(VERSION 3.10)
-
 add_executable(VideochatServer)
 
 target_sources(
@@ -11,7 +9,12 @@ target_sources(
 target_link_libraries(
     VideochatServer
     PRIVATE
-        sockpp
         pthread
+        common_project_options
 )
 
+target_link_libraries_system(
+    VideochatServer
+    PRIVATE
+        sockpp
+)

@@ -3,7 +3,7 @@
 #include <sockpp/tcp_acceptor.h>
 #include <string>
 
-static int PACKET_SIZE = 1024;
+constexpr uint64_t PACKET_SIZE = 1024;
 
 void read_text(sockpp::tcp_socket sock) {
     puts("Start write loop");
@@ -24,14 +24,14 @@ void handle_connection(sockpp::tcp_socket sock) {
         sock.read(&buf, PACKET_SIZE);
         if (buf[0] == 0) continue;
         std::cout << buf << std::flush;
-        for (auto i=0; i<sizeof(buf); i++) {
+        for (std::size_t i=0; i<sizeof(buf); i++) {
             buf[i] = 0;
         }
     }
 }
 
 int main() {
-    int16_t port = 7878;
+    uint16_t port = 7878;
     sockpp::socket_initializer sockInit;
     sockpp::tcp_acceptor acc(port);
 
